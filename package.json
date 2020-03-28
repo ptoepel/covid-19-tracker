@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "next"
+    "start": "next",
+    "build": "next build",
+    "export": "npm run build && next export"
   },
   "author": "",
   "license": "ISC",
