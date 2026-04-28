@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+  covid-19-tracker:
+    image: node:22
+    container_name: covid-19-tracker
+    working_dir: /app
+    volumes:
+      - .:/app
+    command: sh -c "npm install --silent && npm run dev -- --host 0.0.0.0"
+    networks:
+      - proxy-network
+
+networks:
+  proxy-network:
+    external: true
