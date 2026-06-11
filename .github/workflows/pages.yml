@@ -29,11 +29,9 @@ jobs:
       - run: ./node_modules/.bin/next build
         env:
           NEXT_TELEMETRY_DISABLED: 1
-          NODE_OPTIONS: --openssl-legacy-provider
       - run: ./node_modules/.bin/next export -o out
         env:
           NEXT_TELEMETRY_DISABLED: 1
-          NODE_OPTIONS: --openssl-legacy-provider
       - run: touch out/.nojekyll
       - uses: actions/upload-pages-artifact@v3
         with:
