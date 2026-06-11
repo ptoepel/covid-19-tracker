@@ -25,9 +25,15 @@ jobs:
           cache: npm
       - uses: actions/configure-pages@v5
       - run: npm install --legacy-peer-deps
-      - run: npx next build && npx next export -o out
+      - run: chmod -R +x node_modules/.bin
+      - run: ./node_modules/.bin/next build
         env:
           NEXT_TELEMETRY_DISABLED: 1
+          NODE_OPTIONS: --openssl-legacy-provider
+      - run: ./node_modules/.bin/next export -o out
+        env:
+          NEXT_TELEMETRY_DISABLED: 1
+          NODE_OPTIONS: --openssl-legacy-provider
       - run: touch out/.nojekyll
       - uses: actions/upload-pages-artifact@v3
         with:
